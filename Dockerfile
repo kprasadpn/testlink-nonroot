@@ -28,8 +28,8 @@ RUN apt-get update && apt-get upgrade -y && \
 
 COPY rootfs /
 
-ENV ALLOW_EMPTY_PASSWORD="no" \
-    APACHE_ENABLE_CUSTOM_PORTS="no" \
+ENV ALLOW_EMPTY_PASSWORD="yes" \
+    APACHE_ENABLE_CUSTOM_PORTS="yes" \
     APACHE_HTTPS_PORT_NUMBER="8443" \
     APACHE_HTTP_PORT_NUMBER="8080" \
     BITNAMI_APP_NAME="testlink" \
@@ -55,7 +55,7 @@ ENV ALLOW_EMPTY_PASSWORD="no" \
     TESTLINK_LANGUAGE="en_US" \
     TESTLINK_PASSWORD="bitnami" \
     TESTLINK_USERNAME="user"
-
+RUN chmod -R 0755 /bitnami
 EXPOSE 8080 8443
 USER 1001
 ENTRYPOINT [ "/app-entrypoint.sh" ]
