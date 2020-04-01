@@ -57,6 +57,8 @@ ENV ALLOW_EMPTY_PASSWORD="yes" \
     TESTLINK_USERNAME="user"
 RUN chmod -R 0755 /bitnami
 EXPOSE 8080 8443
+USER root
+RUN chown -R 1001:1001 /bitnami
 USER 1001
 ENTRYPOINT [ "/app-entrypoint.sh" ]
 CMD [ "nami", "start", "--foreground", "apache" ]
