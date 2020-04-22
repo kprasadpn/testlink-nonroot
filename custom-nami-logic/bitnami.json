@@ -1,0 +1,138 @@
+{
+    "id": "com.bitnami.testlink",
+    "name": "testlink",
+    "extends": ["Component"],
+    "revision": "4",
+    "author":     {
+        "name": "Bitnami",
+        "url": "https://bitnami.com"
+    },
+    "version": "1.9.20",
+    "expects":     [
+        "com.bitnami.mysql-client",
+        "com.bitnami.php",
+        "com.bitnami.apache"
+    ],
+    "properties":     {
+        "username":         {
+            "description": "Admin username",
+            "default": "user"
+        },
+        "password":         {
+            "type": "password",
+            "description": "Admin user password",
+            "default": "bitnami"
+        },
+        "email":         {
+            "description": "Admin user email",
+            "default": "user@example.com"
+        },
+        "databaseServerHost":         {
+            "description": "Database Server Host",
+            "default": "127.0.0.1"
+        },
+        "databaseServerPort":         {
+            "description": "Database Server Port",
+            "default": 3306
+        },
+        "databaseName":         {
+            "description": "Name of the database the application will connect to",
+            "default": "bitnami_testlink"
+        },
+        "databaseUser":         {
+            "description": "Name of the database user that the application will connect with",
+            "default": "bn_testlink"
+        },
+        "databasePassword":         {
+            "description": "Password for the database user",
+            "default": ""
+        },
+        "dataToPersist": {"value":         [
+            "upload_area",
+            "custom_config.inc.php",
+            "config_db.inc.php"
+        ]},
+        "persistDir":         {
+            "description": "Directory to backup application folders",
+            "value": "/bitnami/testlink"
+        },
+        "smtpEnable":         {
+            "description": "Enable SMTP",
+            "type": "boolean",
+            "default": false
+        },
+        "smtpHost":         {
+            "description": "SMTP Host",
+            "default": ""
+        },
+        "smtpPort":         {
+            "description": "SMTP Port",
+            "default": ""
+        },
+        "smtpUser":         {
+            "description": "SMTP User",
+            "default": ""
+        },
+        "smtpPassword":         {
+            "description": "SMTP Password",
+            "type": "password"
+        },
+        "smtpConnectionMode":         {
+            "description": "SMTP Connection Mode",
+            "type": "choice",
+            "validValues":             [
+                "",
+                "ssl",
+                "tls"
+            ],
+            "default": ""
+        },
+        "language":         {
+            "description": "Default Language",
+            "type": "choice",
+            "validValues":             [
+                "de_DE",
+                "es_AR",
+                "fr_FR",
+                "ja_JP",
+                "pl_PL",
+                "en_GB",
+                "es_ES",
+                "id_ID",
+                "ko_KR",
+                "pt_BR",
+                "zh_CN",
+                "cs_CZ",
+                "en_US",
+                "fi_FI",
+                "it_IT",
+                "nl_NL",
+                "ru_RU"
+            ],
+            "default": "en_US"
+        },
+        "httpPort":         {
+            "description": "Web server HTTP port",
+            "default": "80"
+        },
+        "httpsPort":         {
+            "description": "Web server HTTPS port",
+            "default": "443"
+        },
+        "phpMemoryLimit":         {
+            "description": "Configures the memory_limit for PHP",
+            "default": "256M"
+        }
+    },
+    "installation":     {
+        "prefix": "testlink",
+        "packaging": {"components": [        {
+            "name": "testlink",
+           
+            "folders": [            {
+                "name": "testlink",
+                "files": [{"origin": ["files/testlink/*"]}]
+            }]
+        }]}
+    }
+}
