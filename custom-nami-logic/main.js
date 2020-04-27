@@ -55,16 +55,16 @@ $app.postInstallation = function() {
     volumeFunctions.restorePersistedData($app.dataToPersist);
   }
   $app.helpers.upgradeDatabase(databaseHandler);
-  if ($app.version === $app.helpers.getDBVersion(databaseHandler)) {
+  //testlink if ($app.version === $app.helpers.getDBVersion(databaseHandler)) {
     // T26483 - Move the install dir just in case the user needs to use it for the upgrading procedures
-    $app.debug('Move install subdir to new location');
-    $file.move('install', '../testlink_install');
-  }
+    //testlink $app.debug('Move install subdir to new location');
+    //testlink $file.move('install', '../testlink_install');
+  //testlink }
 
-  //KPcomponentFunctions.configurePermissions(['upload_area', 'logs', 'gui/templates_c/'], {
-    //KPuser: webserverHandler.user,
-    //KPgroup: webserverHandler.group,
-  //KP});
+  //testlink componentFunctions.configurePermissions(['upload_area', 'logs', 'gui/templates_c/'], {
+    //testlink user: webserverHandler.user,
+    //testlink group: webserverHandler.group,
+  //testlink });
   webserverHandler.removeInstallingPage();
   webserverHandler.stop();
 

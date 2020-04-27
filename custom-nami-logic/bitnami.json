@@ -114,10 +114,12 @@
         "httpPort":         {
             "description": "Web server HTTP port",
             "default": "80"
+            "default": "8080"
         },
         "httpsPort":         {
             "description": "Web server HTTPS port",
             "default": "443"
+            "default": "8443"
         },
         "phpMemoryLimit":         {
             "description": "Configures the memory_limit for PHP",
@@ -128,7 +130,7 @@
         "prefix": "testlink",
         "packaging": {"components": [        {
             "name": "testlink",
-           
+            "owner": "root",
             "folders": [            {
                 "name": "testlink",
                 "files": [{"origin": ["files/testlink/*"]}]

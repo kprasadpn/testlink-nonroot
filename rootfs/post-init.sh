@@ -2,12 +2,6 @@
 
 . /opt/bitnami/base/functions
 
-if ! whoami &> /dev/null; then
-   if [ -w /etc/passwd ]; then
-   echo "${USER_NAME:-default}:x:$(id -u):0:${USER_NAME:-default} user:${HOME}:/sbin/nologin" >> /etc/passwd
-   fi
-fi
-
 if [[ -d /docker-entrypoint-init.d ]] && [[ ! -f "/bitnami/$BITNAMI_APP_NAME/.user_scripts_initialized" ]]; then
     for f in /docker-entrypoint-init.d/*; do
         failure=0
